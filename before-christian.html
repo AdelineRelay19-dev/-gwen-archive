@@ -6,54 +6,164 @@
   <title>File 001 — Before Christian</title>
 
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    body {
       min-height: 100vh;
-      display: grid;
-      place-items: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       padding: 24px;
-      background: #0b0912;
-      color: #f5efff;
+      background: radial-gradient(circle at center, #1b1429 0%, #0c0a14 60%, #05040a 100%);
+      color: #f7f3ff;
       font-family: Georgia, "Times New Roman", serif;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Floating glowing particles / fireworks dust */
+    .sparkle {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: floatFirework 4s ease-in-out infinite alternate;
+    }
+
+    .sp1 { top: 12%; left: 8%; background: #ff76ac; box-shadow: 0 0 16px #ff76ac, 0 0 30px #ff76ac; animation-delay: 0s; }
+    .sp2 { top: 25%; right: 10%; background: #70d6ff; box-shadow: 0 0 16px #70d6ff, 0 0 30px #70d6ff; animation-delay: 1.2s; }
+    .sp3 { bottom: 20%; left: 12%; background: #ffd166; box-shadow: 0 0 16px #ffd166, 0 0 30px #ffd166; animation-delay: 0.6s; }
+    .sp4 { bottom: 15%; right: 8%; background: #c77dff; box-shadow: 0 0 16px #c77dff, 0 0 30px #c77dff; animation-delay: 1.8s; }
+    .sp5 { top: 50%; left: 4%; background: #06d6a0; box-shadow: 0 0 14px #06d6a0; animation-delay: 2.3s; }
+    .sp6 { top: 68%; right: 5%; background: #ff9770; box-shadow: 0 0 14px #ff9770; animation-delay: 0.9s; }
+
+    @keyframes floatFirework {
+      0% {
+        transform: translateY(0) scale(0.9);
+        opacity: 0.4;
+      }
+      50% {
+        transform: translateY(-18px) scale(1.3);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-35px) scale(0.8);
+        opacity: 0.3;
+      }
+    }
+
+    /* Ambient corner rainbow bursts */
+    .rainbow-glow-left {
+      position: fixed;
+      left: -90px;
+      top: 30%;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #ff007f, #7928ca, #0070f3);
+      filter: blur(80px);
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .rainbow-glow-right {
+      position: fixed;
+      right: -90px;
+      bottom: 25%;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #ffbe0b, #fb5607, #ff006e);
+      filter: blur(80px);
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    /* Card Box */
+    .message-card {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 580px;
+      padding: 38px 24px;
+      border-radius: 20px;
+      background: rgba(18, 14, 30, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(220, 180, 255, 0.35);
+      box-shadow: 0 0 40px rgba(179, 107, 255, 0.18);
       text-align: center;
     }
 
-    .message {
-      max-width: 560px;
+    .file-tag {
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      color: #d1b3ff;
+      text-transform: uppercase;
+      margin-bottom: 12px;
     }
 
     h1 {
-      color: #d6aeff;
+      font-size: clamp(2rem, 6.5vw, 2.7rem);
+      margin-bottom: 14px;
+      background: linear-gradient(90deg, #ff9ebb, #d6aeff, #8ae9ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 1px;
     }
 
-    p {
-      color: #c9c0d8;
+    .desc {
+      color: #cfc6dd;
+      font-size: 1.05rem;
       line-height: 1.7;
+      margin-bottom: 28px;
     }
 
-    a {
+    .btn-back {
       display: inline-block;
-      margin-top: 18px;
-      padding: 12px 20px;
-      border-radius: 8px;
-      color: #171020;
-      background: #d6aeff;
+      padding: 13px 26px;
+      border-radius: 10px;
+      color: #120e1f;
+      background: linear-gradient(135deg, #f2d9ff 0%, #caa0ff 100%);
       font-family: Arial, sans-serif;
       font-weight: bold;
+      font-size: 0.9rem;
+      letter-spacing: 1.5px;
       text-decoration: none;
+      box-shadow: 0 0 20px rgba(202, 160, 255, 0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-back:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 28px rgba(202, 160, 255, 0.7);
     }
   </style>
 </head>
 
 <body>
-  <main class="message">
-    <p>FILE 001</p>
-    <h1>Before Christian</h1>
-    <p>
-      The story file is ready for its first memory.
-    </p>
+  <!-- Ambient rainbow glows -->
+  <div class="rainbow-glow-left"></div>
+  <div class="rainbow-glow-right"></div>
 
-    <a href="archive.html">BACK TO ARCHIVE</a>
+  <!-- Sparkles / Little Fireworks -->
+  <div class="sparkle sp1"></div>
+  <div class="sparkle sp2"></div>
+  <div class="sparkle sp3"></div>
+  <div class="sparkle sp4"></div>
+  <div class="sparkle sp5"></div>
+  <div class="sparkle sp6"></div>
+
+  <main class="message-card">
+    <p class="file-tag">FILE 001</p>
+    <h1>Before Christian</h1>
+    <p class="desc">The story file is ready for its first memory.</p>
+    <a class="btn-back" href="archive.html">BACK TO ARCHIVE</a>
   </main>
 </body>
 </html>

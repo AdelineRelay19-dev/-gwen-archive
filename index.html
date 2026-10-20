@@ -123,6 +123,7 @@
 
       <p id="introText">
         Press start before anything else.
+
       </p>
 
       <button class="start-button" id="startButton">
@@ -168,14 +169,12 @@
           loadingText.textContent = "Almost ready...";
         }
 
-        if (number === 100) {
-          clearInterval(timer);
-          loadingText.textContent = "Ready!";
-
-          setTimeout(function () {
-            window.location.href = "love-letter.html";
-          }, 700);
-        }
+            if (number >= 100) {
+      clearInterval(timer);
+      setTimeout(() => {
+        window.location.href = "archive.html";
+      }, 600);
+    }
 
         number++;
       }, 45);

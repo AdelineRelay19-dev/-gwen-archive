@@ -8,162 +8,181 @@
   <style>
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     body {
+      margin: 0;
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 24px;
-      background: radial-gradient(circle at center, #1b1429 0%, #0c0a14 60%, #05040a 100%);
-      color: #f7f3ff;
+      padding: 32px 18px;
+      background:
+        radial-gradient(circle at top left, rgba(195, 122, 255, 0.22), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(255, 102, 188, 0.18), transparent 35%),
+        #090710;
+      color: #f7f1ff;
       font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .story-card {
       position: relative;
-      overflow-x: hidden;
-    }
-
-    /* Floating glowing particles / fireworks dust */
-    .sparkle {
-      position: fixed;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      pointer-events: none;
-      animation: floatFirework 4s ease-in-out infinite alternate;
-    }
-
-    .sp1 { top: 12%; left: 8%; background: #ff76ac; box-shadow: 0 0 16px #ff76ac, 0 0 30px #ff76ac; animation-delay: 0s; }
-    .sp2 { top: 25%; right: 10%; background: #70d6ff; box-shadow: 0 0 16px #70d6ff, 0 0 30px #70d6ff; animation-delay: 1.2s; }
-    .sp3 { bottom: 20%; left: 12%; background: #ffd166; box-shadow: 0 0 16px #ffd166, 0 0 30px #ffd166; animation-delay: 0.6s; }
-    .sp4 { bottom: 15%; right: 8%; background: #c77dff; box-shadow: 0 0 16px #c77dff, 0 0 30px #c77dff; animation-delay: 1.8s; }
-    .sp5 { top: 50%; left: 4%; background: #06d6a0; box-shadow: 0 0 14px #06d6a0; animation-delay: 2.3s; }
-    .sp6 { top: 68%; right: 5%; background: #ff9770; box-shadow: 0 0 14px #ff9770; animation-delay: 0.9s; }
-
-    @keyframes floatFirework {
-      0% {
-        transform: translateY(0) scale(0.9);
-        opacity: 0.4;
-      }
-      50% {
-        transform: translateY(-18px) scale(1.3);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-35px) scale(0.8);
-        opacity: 0.3;
-      }
-    }
-
-    /* Ambient corner rainbow bursts */
-    .rainbow-glow-left {
-      position: fixed;
-      left: -90px;
-      top: 30%;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: linear-gradient(45deg, #ff007f, #7928ca, #0070f3);
-      filter: blur(80px);
-      opacity: 0.35;
-      pointer-events: none;
-    }
-
-    .rainbow-glow-right {
-      position: fixed;
-      right: -90px;
-      bottom: 25%;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: linear-gradient(45deg, #ffbe0b, #fb5607, #ff006e);
-      filter: blur(80px);
-      opacity: 0.3;
-      pointer-events: none;
-    }
-
-    /* Card Box */
-    .message-card {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      max-width: 580px;
-      padding: 38px 24px;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 30px 22px;
+      border: 1px solid rgba(218, 177, 255, 0.38);
       border-radius: 20px;
-      background: rgba(18, 14, 30, 0.85);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(220, 180, 255, 0.35);
-      box-shadow: 0 0 40px rgba(179, 107, 255, 0.18);
+      background: rgba(20, 15, 32, 0.9);
+      box-shadow: 0 0 35px rgba(174, 101, 255, 0.2);
+    }
+
+    .file-label {
+      margin: 0 0 8px;
+      color: #d4afff;
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 3px;
       text-align: center;
     }
 
-    .file-tag {
-      font-family: Arial, sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 3px;
-      color: #d1b3ff;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
     h1 {
-      font-size: clamp(2rem, 6.5vw, 2.7rem);
-      margin-bottom: 14px;
-      background: linear-gradient(90deg, #ff9ebb, #d6aeff, #8ae9ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      margin: 0 0 6px;
+      color: #f1d9ff;
+      font-size: clamp(1.8rem, 7vw, 3rem);
+      text-align: center;
+    }
+
+    .subtitle {
+      margin: 0 0 30px;
+      color: #aaa0b8;
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
       letter-spacing: 1px;
+      text-align: center;
     }
 
-    .desc {
-      color: #cfc6dd;
+    .story p {
+      color: #ddd3e7;
       font-size: 1.05rem;
-      line-height: 1.7;
-      margin-bottom: 28px;
+      line-height: 1.85;
+      margin: 0 0 20px;
     }
 
-    .btn-back {
-      display: inline-block;
-      padding: 13px 26px;
+    .story em {
+      color: #f0cfff;
+    }
+
+    .scene-break {
+      margin: 28px auto;
+      color: #c99aff;
+      text-align: center;
+      letter-spacing: 8px;
+    }
+
+    .song {
+      color: #ffb8dd;
+    }
+
+    .highlight {
+      padding: 16px;
+      border-left: 3px solid #d6aeff;
+      background: rgba(214, 174, 255, 0.08);
+      color: #f1ddff;
+      font-style: italic;
+    }
+
+    .next-button {
+      display: block;
+      width: fit-content;
+      margin: 30px auto 0;
+      padding: 13px 22px;
       border-radius: 10px;
-      color: #120e1f;
-      background: linear-gradient(135deg, #f2d9ff 0%, #caa0ff 100%);
+      background: linear-gradient(135deg, #efc9ff, #b887ff);
+      color: #160d21;
       font-family: Arial, sans-serif;
       font-weight: bold;
-      font-size: 0.9rem;
-      letter-spacing: 1.5px;
       text-decoration: none;
-      box-shadow: 0 0 20px rgba(202, 160, 255, 0.4);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 0 20px rgba(202, 160, 255, 0.35);
     }
 
-    .btn-back:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 28px rgba(202, 160, 255, 0.7);
+    .next-button:active {
+      transform: scale(0.97);
+    }
+
+    .back-link {
+      display: block;
+      margin-top: 18px;
+      color: #a99bb8;
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      text-align: center;
+      text-decoration: none;
     }
   </style>
 </head>
 
 <body>
-  <!-- Ambient rainbow glows -->
-  <div class="rainbow-glow-left"></div>
-  <div class="rainbow-glow-right"></div>
-
-  <!-- Sparkles / Little Fireworks -->
-  <div class="sparkle sp1"></div>
-  <div class="sparkle sp2"></div>
-  <div class="sparkle sp3"></div>
-  <div class="sparkle sp4"></div>
-  <div class="sparkle sp5"></div>
-  <div class="sparkle sp6"></div>
-
-  <main class="message-card">
-    <p class="file-tag">FILE 001</p>
+  <main class="story-card">
+    <p class="file-label">WENZY'S POV — AKA SHRIMP 😑</p>
     <h1>Before Christian</h1>
-    <p class="desc">The story file is ready for its first memory.</p>
-    <a class="btn-back" href="archive.html">BACK TO ARCHIVE</a>
+    <p class="subtitle">FILE 001 • MEMORY LOADING</p>
+
+    <section class="story">
+      <p>
+        Before I met Christian, everything in my life felt normal.
+        I was so naïve back then. I never understood why some people
+        disliked me for no reason, and honestly, I still didn't understand it.
+      </p>
+
+      <p>
+        Every time I came home from school, I would overthink everything.
+        Eventually, it became too much. Since I was bored, I decided to do
+        some housework instead.
+      </p>
+
+      <p>
+        I cleaned the bedrooms, washed the dishes, organized the living room,
+        folded all the clothes perfectly, and did the laundry.
+      </p>
+
+      <p>
+        It was pretty normal—except for the music playing beside me the
+        entire time. The mood was sad, and I didn't even know why, but I
+        kept going anyway.
+      </p>
+
+      <div class="scene-break">✦ ✧ ✦</div>
+
+      <p>
+        When I finally finished all the chores, I jumped onto my bed and
+        stared at the ceiling. I let out the deepest sigh.
+      </p>
+
+      <p class="highlight">
+        “What if something unexpected happens?”
+      </p>
+
+      <p>
+        Then I turned my head to the left and saw my phone lying there,
+        still playing the song <span class="song">“Enough.”</span>
+      </p>
+
+      <p>
+        I reached for it, turned up the volume, and flopped back onto my bed.
+        I started scrolling through TikTok until I saw a video about chatting
+        with friends online.
+      </p>
+
+      <p>
+        I was bored, so I opened the Play Store and searched for
+        <em>Litmatch</em>.
+      </p>
+    </section>
+
+    <a class="next-button" href="popup-era.html">
+      CONTINUE THE MEMORY
+    </a>
+
+    <a class="back-link" href="archive.html">
+      ← Back to archive
+    </a>
   </main>
 </body>
 </html>

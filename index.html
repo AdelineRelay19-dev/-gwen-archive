@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Little Surprise</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow: hidden;
+      color: white;
+      font-family: Georgia, serif;
+      background:
+        radial-gradient(circle at center, #4b123f, #190b24 50%, #08040d);
+    }
+
+    .screen {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .start-box {
+      width: min(90vw, 430px);
+      padding: 42px 25px;
+      text-align: center;
+      border: 1px solid #ff4fc3;
+      border-radius: 18px;
+      background: rgba(36, 5, 44, 0.9);
+      box-shadow:
+        0 0 12px #ff4fc3,
+        0 0 35px rgba(255, 79, 195, 0.5);
+    }
+
+    .small-text {
+      color: #ffd3f1;
+      font-size: 11px;
+      letter-spacing: 3px;
+    }
+
+    h1 {
+      margin: 35px 0 15px;
+      color: #ffb7e9;
+      letter-spacing: 5px;
+    }
+
+    p {
+      color: #ffe1f4;
+      line-height: 1.6;
+    }
+
+    .start-button {
+      margin-top: 25px;
+      padding: 15px 32px;
+      border: none;
+      border-radius: 30px;
+      color: white;
+      background: #df2da5;
+      font-weight: bold;
+      letter-spacing: 2px;
+      cursor: pointer;
+      box-shadow: 0 0 18px #ff45bd;
+    }
+
+    .start-button:active {
+      transform: scale(0.94);
+    }
+
+    .loading {
+      display: none;
+      margin-top: 28px;
+    }
+
+    .loading.show {
+      display: block;
+    }
+
+    .percentage {
+      margin-bottom: 12px;
+      color: #ffb7e9;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 12px;
+      overflow: hidden;
+      border: 1px solid #ff70ce;
+      border-radius: 20px;
+      background: #26082c;
+    }
+
+    .progress {
+      width: 0%;
+      height: 100%;
+      border-radius: 20px;
+      background: linear-gradient(
+        90deg,
+        #ff229e,
+        #ffdf5d,
+        #55eaff
+      );
+      transition: width 0.04s linear;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="screen">
+    <section class="start-box">
+      <div class="small-text">✦ A LITTLE SURPRISE ✦</div>
+
+      <h1>READY?</h1>
+
+      <p id="introText">
+        Press start before anything else.
+      </p>
+
+      <button class="start-button" id="startButton">
+        START ✦
+      </button>
+
+      <div class="loading" id="loading">
+        <div class="percentage" id="percentage">1%</div>
+
+        <div class="progress-bar">
+          <div class="progress" id="progress"></div>
+        </div>
+
+        <p id="loadingText">Preparing the surprise...</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const startButton = document.getElementById("startButton");
+    const loading = document.getElementById("loading");
+    const percentage = document.getElementById("percentage");
+    const progress = document.getElementById("progress");
+    const loadingText = document.getElementById("loadingText");
+    const introText = document.getElementById("introText");
+
+    startButton.addEventListener("click", function () {
+      startButton.style.display = "none";
+      introText.style.display = "none";
+      loading.classList.add("show");
+
+      let number = 1;
+
+      const timer = setInterval(function () {
+        percentage.textContent = number + "%";
+        progress.style.width = number + "%";
+
+        if (number === 35) {
+          loadingText.textContent = "Loading the sparkles...";
+        }
+
+        if (number === 70) {
+          loadingText.textContent = "Almost ready...";
+        }
+
+        if (number === 100) {
+          clearInterval(timer);
+          loadingText.textContent = "Ready!";
+
+          setTimeout(function () {
+            window.location.href = "love-letter.html";
+          }, 700);
+        }
+
+        number++;
+      }, 45);
+    });
+  </script>
+</body>
+  </html> 

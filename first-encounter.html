@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File 003 — The First Encounter</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 24px 18px;
+      background: radial-gradient(circle at center, #1b122c 0%, #0c0816 65%, #05040a 100%);
+      color: #f7f3ff;
+      font-family: Georgia, "Times New Roman", serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .reveal-card {
+      max-width: 620px;
+      width: 100%;
+      padding: 34px 22px;
+      border-radius: 20px;
+      background: rgba(18, 13, 29, 0.92);
+      border: 1px solid rgba(220, 180, 255, 0.35);
+      box-shadow: 0 0 40px rgba(180, 110, 255, 0.22);
+      text-align: center;
+    }
+
+    .tag {
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 3px;
+      color: #70d6ff;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 6.5vw, 2.6rem);
+      margin-bottom: 16px;
+      background: linear-gradient(90deg, #ff9ebb, #d6aeff, #70d6ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .story-text {
+      color: #d8cde6;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      margin-bottom: 24px;
+    }
+
+    /* Target / Match radar box */
+    .target-profile {
+      margin: 26px auto;
+      padding: 20px;
+      max-width: 440px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(214, 174, 255, 0.25);
+      text-align: left;
+    }
+
+    .profile-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+    }
+
+    .profile-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .label {
+      color: #a496b8;
+    }
+
+    .val {
+      color: #ffd166;
+      font-weight: bold;
+    }
+
+    .punchline {
+      font-size: 1.15rem;
+      color: #f7d6ff;
+      margin: 24px 0;
+      font-style: italic;
+    }
+
+    .btn-next {
+      display: inline-block;
+      padding: 13px 26px;
+      border-radius: 10px;
+      color: #120e1f;
+      background: linear-gradient(135deg, #f2d9ff 0%, #caa0ff 100%);
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      font-size: 0.9rem;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+      box-shadow: 0 0 22px rgba(202, 160, 255, 0.4);
+    }
+
+    .btn-next:active {
+      transform: scale(0.97);
+    }
+
+    .back-link {
+      display: block;
+      margin-top: 20px;
+      color: #9f91b0;
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="reveal-card">
+    <p class="tag">FILE 003 • CLASSIFIED</p>
+    <h1>The First Encounter</h1>
+
+    <p class="story-text">
+      I clicked <em>“Find Your Match”</em> without thinking too much. Just pure boredom, curiosity, and zero expectations.
+    </p>
+
+    <!-- Radar Profile Card -->
+    <div class="target-profile">
+      <div class="profile-row">
+        <span class="label">Matched User:</span>
+        <span class="val">Christian</span>
+      </div>
+      <div class="profile-row">
+        <span class="label">Initial Impression:</span>
+        <span class="val">Idiot 😑</span>
+      </div>
+      <div class="profile-row">
+        <span class="label">Current Status:</span>
+        <span class="val">Still talking up until now</span>
+      </div>
+    </div>
+
+    <p class="punchline">
+      “And that idiot was Christian.”
+    </p>
+
+    <p class="story-text" style="font-size: 0.95rem; color: #b7a9cb;">
+      Up until now, I still can’t believe how one random midnight decision led to someone who’d stick around this long.
+    </p>
+
+    <a class="btn-next" href="archive.html">BACK TO ARCHIVE</a>
+    <a class="back-link" href="popup-era.html">← Previous: Pop Up Era</a>
+  </main>
+</body>
+  </html>

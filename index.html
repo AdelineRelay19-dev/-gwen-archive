@@ -21,6 +21,8 @@
     }
 
     .screen {
+      position: relative;
+      z-index: 2;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -111,10 +113,112 @@
       );
       transition: width 0.04s linear;
     }
+
+    /* Floating designs */
+    .floating-designs {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .floating {
+      position: absolute;
+      bottom: -50px;
+      color: #ff9ee2;
+      font-family: Georgia, serif;
+      text-shadow:
+        0 0 8px #ff4fc3,
+        0 0 16px #ff4fc3;
+      opacity: 0;
+      animation: floatUp linear infinite;
+    }
+
+    .floating:nth-child(1) {
+      left: 8%;
+      font-size: 25px;
+      animation-duration: 9s;
+      animation-delay: 0s;
+    }
+
+    .floating:nth-child(2) {
+      left: 22%;
+      font-size: 18px;
+      animation-duration: 12s;
+      animation-delay: 2s;
+    }
+
+    .floating:nth-child(3) {
+      left: 38%;
+      font-size: 28px;
+      animation-duration: 10s;
+      animation-delay: 4s;
+    }
+
+    .floating:nth-child(4) {
+      left: 55%;
+      font-size: 20px;
+      animation-duration: 13s;
+      animation-delay: 1s;
+    }
+
+    .floating:nth-child(5) {
+      left: 72%;
+      font-size: 26px;
+      animation-duration: 11s;
+      animation-delay: 5s;
+    }
+
+    .floating:nth-child(6) {
+      left: 88%;
+      font-size: 19px;
+      animation-duration: 14s;
+      animation-delay: 3s;
+    }
+
+    .floating:nth-child(7) {
+      left: 48%;
+      font-size: 15px;
+      animation-duration: 8s;
+      animation-delay: 6s;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg) scale(0.8);
+        opacity: 0;
+      }
+
+      15% {
+        opacity: 0.9;
+      }
+
+      75% {
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: translateY(-115vh) rotate(360deg) scale(1.2);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 
 <body>
+
+  <!-- Floating background designs -->
+  <div class="floating-designs">
+    <span class="floating">✦</span>
+    <span class="floating">♡</span>
+    <span class="floating">✧</span>
+    <span class="floating">♥</span>
+    <span class="floating">✦</span>
+    <span class="floating">♡</span>
+    <span class="floating">✧</span>
+  </div>
+
   <main class="screen">
     <section class="start-box">
       <div class="small-text">✦ A LITTLE SURPRISE ✦</div>
@@ -123,7 +227,6 @@
 
       <p id="introText">
         Press start before anything else.
-
       </p>
 
       <button class="start-button" id="startButton">
@@ -170,15 +273,17 @@
         }
 
         if (number >= 100) {
-      clearInterval(timer);
-      setTimeout(() => {
-        window.location.href = "./archive.html";
-      }, 600);
-      }
+          clearInterval(timer);
+
+          setTimeout(() => {
+            window.location.href = "./archive.html";
+          }, 600);
+        }
 
         number++;
       }, 45);
     });
   </script>
+
 </body>
-  </html> 
+</html>
